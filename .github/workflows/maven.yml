@@ -1,5 +1,4 @@
 name: Java Maven Build & Publish Artifact
-
 on:
   push:
     branches: [ "main" ]
@@ -7,11 +6,8 @@ on:
     branches: [ "main" ]
 env:
   cloud: aws-cloud
- 
-
 jobs:
   build_test:
-
     runs-on: ubuntu-latest
     env:
      region: us-east-1
