@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
      region: us-east-1
+    environment: production
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -24,7 +25,8 @@ jobs:
           mvn -B package --file pom.xml
           echo "$name we are using $cloud in $region region"
           echo "this is example for repolevelconfiguration ${{vars.PROJECTSCOPE}}"
-          echo "This sis example for secret variables ${{secrets.MY_SECRET}}"
+          echo "This is example for secret variables ${{secrets.MY_SECRET}}"
+          echo "deploying this project to $environment with ${{vars.PROJECTID}}
       env:
        name: hello
 
