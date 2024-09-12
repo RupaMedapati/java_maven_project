@@ -31,7 +31,7 @@ jobs:
       run: |
           mvn -B package --file pom.xml
           echo "$cloud is used by $name in $region"
-          echo "deploying to "$environment with ${{vars.PROJECTID}}
+          echo "deploying to $environment with ${{vars.PROJECTID}}"
       env:
        region: us-east-1
 
