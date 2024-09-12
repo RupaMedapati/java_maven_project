@@ -9,9 +9,10 @@ env:
 jobs:
   build_test:
     runs-on: ubuntu-latest
+    environment: production
     env:
      region: us-east-1
-     environment: production
+     
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
