@@ -27,6 +27,7 @@ jobs:
       run: |
           mvn -B package --file pom.xml
           echo "$name we are using $cloud in $region region"
+          echo "${{vars.PROJECTSCOPE}}"
       env:
        name: hello
 
