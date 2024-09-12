@@ -7,12 +7,16 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+env:
+  cloud: aws-cloud
+ 
 
 jobs:
   build_test:
 
     runs-on: ubuntu-latest
-
+    env:
+     name: rupa
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -23,6 +27,8 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+      env:
+       region: us-east-1
 
    
   
