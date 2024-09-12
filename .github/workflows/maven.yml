@@ -9,6 +9,7 @@ on:
     branches: [ "main" ]
 env:
   cloud: aws-cloud
+  
  
 
 jobs:
@@ -17,6 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
      name: rupa
+    environment: production
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -29,6 +31,7 @@ jobs:
       run: |
           mvn -B package --file pom.xml
           echo "$cloud is used by $name in $region"
+          echo "deploying to "$environment with ${{vars.PROJECTID}}
       env:
        region: us-east-1
 
