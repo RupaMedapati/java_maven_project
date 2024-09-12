@@ -26,7 +26,7 @@ jobs:
           echo "$name we are using $cloud in $region region"
           echo "this is example for repolevelconfiguration ${{vars.PROJECTSCOPE}}"
           echo "This is example for secret variables ${{secrets.MY_SECRET}}"
-          echo "deploying this project to ${{ github.environment }} with ${{vars.PROJECTID}}"
+          echo "deploying this project to $environment with ${{vars.PROJECTID}}"
       env:
        name: hello
 
