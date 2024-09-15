@@ -30,7 +30,7 @@ jobs:
           echo "$name $cloud is running in $region"
           echo "This is example of repo variable ${{vars.PROJECTSCOPE}}"
           echo "this is secret variable ${{secrets.MY_SECRET}}"
-          echo "this is example of environment ${{vars.PROJECTID}}"
+          echo "this is example of environment ${{matrix.environment}}"
          
       env:
        name: hello
