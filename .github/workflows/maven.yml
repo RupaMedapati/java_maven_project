@@ -23,6 +23,12 @@ jobs:
           mvn clean install
     - name: run test
       run:  mvn test
+    - run: mkdir artifacts && cp target/*.jar artifacts
+    - name: download artifact
+      uses: actions/download-artifact@v4.1.8
+      with:
+        name: package
+        path: artifacts
     
     
     
