@@ -24,8 +24,8 @@ jobs:
     - name: run test
       run:  mvn test
     - run: mkdir artifacts && cp target/*.jar artifacts
-    - name: download artifact
-      uses: actions/download-artifact@v4.1.8
+    - name: upload artifact
+      uses: actions/upload-artifact@v3.2.1-node20
       with:
         name: artifacts
         path: artifacts
