@@ -8,9 +8,11 @@ env:
   cloud: aws-cloud
 jobs:
   build_test:
+    strategy:
+      matrix:
+        environment: [staging,production]
     runs-on: ubuntu-latest
-    environment:
-      name: production
+    
     env:
       region: us-east-1
     steps:
