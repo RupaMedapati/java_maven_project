@@ -25,6 +25,7 @@ jobs:
           mvn -B package --file pom.xml
           echo "$name $cloud is running in $region"
           echo "This is example of repo variable ${{vars.PROJECTSCOPE}}"
+          echo "this is secret variable ${{secrets.MY_SECRET}}"
          
       env:
        name: hello
