@@ -27,7 +27,7 @@ jobs:
     - name: download artifact
       uses: actions/download-artifact@v4.1.8
       with:
-        name: package
+        name: artifacts
         path: artifacts
     
     
