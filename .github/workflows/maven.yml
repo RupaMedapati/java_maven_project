@@ -1,18 +1,12 @@
-name: Java Maven Build & Publish Artifact
+name: Java Maven Build 
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-env:
-  cloud: aws-cloud
 jobs:
   build_test:
     runs-on: ubuntu-latest
-    environment: production
-    env:
-     region: us-east-1
-     
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -22,14 +16,8 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: |
-          mvn -B package --file pom.xml
-          echo "$name we are using $cloud in $region region"
-          echo "this is example for repolevelconfiguration ${{vars.PROJECTSCOPE}}"
-          echo "This is example for secret variables ${{secrets.MY_SECRET}}"
-          echo "deploying this project to $environment with ${{vars.PROJECTID}}"
-      env:
-       name: hello
+      run: mvn -B package --file pom.xml
+
 
 
    
