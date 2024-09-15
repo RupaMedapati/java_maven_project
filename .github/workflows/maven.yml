@@ -28,6 +28,8 @@ jobs:
            mvn test
            echo "$name $cloud is hosted in $region"
            echo " This is example for repolevel ${{vars.PROJECT}}"
+           echo "This is example for secrets ${{secrets.AWS_ACCESS_KEY_ID}}"
+           
       env:
        name: hello
     
