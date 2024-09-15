@@ -23,7 +23,7 @@ jobs:
     - name: Build with Maven
       run: |
           mvn -B package --file pom.xml
-          echo "$name $cloud is running in $env"
+          echo "$name $cloud is running in $region"
          
       env:
        name: hello
