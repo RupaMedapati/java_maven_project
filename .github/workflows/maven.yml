@@ -10,7 +10,7 @@ env:
 jobs:
   build_test:
     runs-on: ubuntu-latest
-    environment: staging
+    environment: production
     env:
      region: us-east-1
          
