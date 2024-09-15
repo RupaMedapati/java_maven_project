@@ -25,14 +25,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Set environment-specific PROJECTID
-      run: |
-        echo "Setting PROJECTID for ${{ matrix.environment }}"
-        if [[ "${{ matrix.environment }}" == "staging" ]]; then
-          echo "PROJECTID=staging-project-id" >> $GITHUB_ENV
-        elif [[ "${{ matrix.environment }}" == "production" ]]; then
-          echo "PROJECTID=production-project-id" >> $GITHUB_ENV
-        fi
+    
     - name: Build with Maven
       run: mvn clean install
     - name: run test
@@ -41,7 +34,7 @@ jobs:
            echo "$name $cloud is hosted in $region"
            echo " This is example for repolevel ${{vars.PROJECT}}"
            echo "This is example for secrets ${{secrets.AWS_ACCESS_KEY_ID}}"
-           echo "we are deploying to $PROJECTID"
+           echo "we are deploying to ${{matrix.environment}}"
            
       env:
        name: hello
