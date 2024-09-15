@@ -37,7 +37,7 @@ jobs:
            echo "we are deploying to ${{matrix.environment}}"
            
       env:
-       name: hello
+       name: hellos
     
     
     
