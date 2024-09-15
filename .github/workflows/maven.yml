@@ -4,10 +4,13 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+env:
+  cloud: aws-cloud
 jobs:
   build_test:
     runs-on: ubuntu-latest
-    environment: production
+    env:
+     region: us-east-1
          
     steps:
     - name: checkout code
@@ -19,16 +22,14 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: |
-          mvn clean install
+      run: mvn clean install
     - name: run test
-      run:  mvn test
-    - run: mkdir artifacts && cp target/*.jar artifacts
-    - name: upload artifact
-      uses: actions/upload-artifact@v3.2.1-node20
-      with:
-        name: artifacts
-        path: artifacts
+      run: |
+           mvn test
+           echo "$name $cloud is hosted in $region
+      env:
+       name: hello
+    
     
     
     
