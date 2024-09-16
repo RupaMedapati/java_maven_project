@@ -9,7 +9,9 @@ env:
 jobs:
   build_test:
     runs-on: ubuntu-latest
-    environment: staging
+    strategy:
+      matrix:
+          environment: [staging,production]
     env:
       region: us-east-1
     steps:
@@ -31,7 +33,7 @@ jobs:
             echo "this is example for repovariable ${{vars.PROJECTSCOPE}}"
             echo "this is example for secrets ${{secrets.AWS_S3_BUCKET}}"
             echo "this is repo ${{vars.PROJECTIDS}}"
-            echo "we are deploying to ${{vars.DEPLOYENV}}"
+            echo "we are deploying to ${{matrix.environment}}"
       env:
        name: hello
 
