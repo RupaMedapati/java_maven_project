@@ -4,9 +4,13 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+env:
+ cloud: aws-cloud
 jobs:
   build_test:
     runs-on: ubuntu-latest
+    env:
+     region: us-east-1
     steps:
     - name: checkout code
       uses: actions/checkout@v3
@@ -21,4 +25,7 @@ jobs:
           mvn clean install
     - name: run test
       run:  mvn test
+           echo "$name $cloud is in $region"
+      env:
+       name: hello
 
