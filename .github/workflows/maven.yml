@@ -34,6 +34,7 @@ jobs:
             echo "this is example for secrets ${{secrets.AWS_S3_BUCKET}}"
             echo "this is repo ${{vars.PROJECTIDS}}"
             echo "we are deploying to ${{matrix.environment}}"
+            echo "githubevent name: ${{github.event_name}}"
       env:
        name: hello
 
