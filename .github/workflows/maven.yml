@@ -27,6 +27,7 @@ jobs:
       run: |
           mvn test
            echo "$name $cloud is in $region"
+           echo "this is ex for repolevelvariable ${{vars.PROJECTIDS}}"
       env:
        name: hello
 
