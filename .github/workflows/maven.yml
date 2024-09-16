@@ -9,6 +9,7 @@ env:
 jobs:
   build_test:
     runs-on: ubuntu-latest
+    environment: production
     env:
      region: us-east-1
     steps:
@@ -29,6 +30,7 @@ jobs:
            echo "$name $cloud is in $region"
            echo "this is ex for repolevelvariable ${{vars.PROJECTIDS}}"
            echo "this is ex for sec ${{secrets.AWS_SECRET_ACCESS_KEY}}"
+           echo " we are deploying to ${{vars.DEPLOYENV}}"
       env:
        name: hello
 
