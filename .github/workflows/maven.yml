@@ -29,6 +29,7 @@ jobs:
             echo "$name $cloud is deployed in $region"
             echo "this is example for repovariable ${{vars.PROJECTSCOPE}}"
             echo "this is example for secrets ${{secrets.AWS_S3_BUCKET}}"
+            echo "this is repo ${{vars.PROJECTSCOPE}}"
       env:
        name: hello
 
