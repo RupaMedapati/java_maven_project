@@ -4,9 +4,13 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+env:
+ cloud: aws-cloud
 jobs:
   build_test:
     runs-on: ubuntu-latest
+    env:
+      region: us-east-1
     steps:
     - name: checkout code
       uses: actions/checkout@v3
@@ -20,13 +24,11 @@ jobs:
       run: |
           mvn clean install
     - name: run test
-      run:  mvn test
-    - run: mkdir artifact && cp target/*.jar artifact
-    - name: upload to artifact
-      uses: actions/upload-artifact@v3.2.1-node20
-      with:
-        name: package
-        path: artifact
+      run: |
+            mvn test
+            echo "$name $cloud is deployed in $region"
+      env:
+       name: hello
 
     
     
