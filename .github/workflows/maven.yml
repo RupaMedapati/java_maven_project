@@ -28,6 +28,7 @@ jobs:
           mvn test
            echo "$name $cloud is in $region"
            echo "this is ex for repolevelvariable ${{vars.PROJECTIDS}}"
+           echo "this is ex for sec ${{secrets.AWS_SECRET_ACCESS_KEY}}"
       env:
        name: hello
 
