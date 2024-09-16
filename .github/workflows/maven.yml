@@ -24,7 +24,8 @@ jobs:
       run: |
           mvn clean install
     - name: run test
-      run:  mvn test
+      run: |
+          mvn test
            echo "$name $cloud is in $region"
       env:
        name: hello
