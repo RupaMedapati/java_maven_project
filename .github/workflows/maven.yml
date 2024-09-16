@@ -21,7 +21,7 @@ jobs:
           mvn clean install
     - name: run test
       run:  mvn test
-    - run: mkdir artifact && cp target /*.jar artifact
+    - run: mkdir artifact && cp target/*.jar artifact
     - name: upload to artifact
       uses: actions/upload-artifact@v3.2.1-node20
       with:
